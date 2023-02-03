@@ -1,0 +1,31 @@
+{
+  "name": "misfitapp",
+  "version": "1.0.0",
+  "description": "nodejs app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mervekartal/MissfitApp_NodeJS.git"
+  },
+  "keywords": [
+    "nodejs",
+    "fitness",
+    "app"
+  ],
+  "author": "merve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mervekartal/MissfitApp_NodeJS/issues"
+  },
+  "homepage": "https://github.com/mervekartal/MissfitApp_NodeJS#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
