@@ -4,6 +4,7 @@ const ejs = require('ejs')
 const mongoose = require('mongoose')
 
 const pageController = require('./controllers/pageController')
+const trainingController = require('./controllers/trainingController')
 
 const app = express()
 
@@ -47,6 +48,7 @@ app.get('/gallery', pageController.getGalleryPage) //gallery
 app.get('/register', pageController.getRegisterPage) //register
 app.get('/login', pageController.getLoginPage) //login
 
+app.post('/trainings', trainingController.createTraining) //add training - post operation
 
 const port = 3000
 app.listen(port, () => {
