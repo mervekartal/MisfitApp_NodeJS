@@ -15,3 +15,18 @@ exports.createTraining = async (req,res) => {
         })
     }
 }
+exports.getAllTrainings = async (req,res) => {
+    try{
+    const trainings = await Training.find({}).sort('-createdAt')
+        res.status(200).render('portfolios', {
+            trainings,
+            page_name: "trainings"
+        })
+    }catch(error){
+         res.status(400).json({
+         status: 'fail',
+         error
+
+        })
+    }
+}

@@ -45,3 +45,9 @@ exports.getLogoutPage = (req,res) => {
         page_name: "logout"
     })
 }
+
+exports.getTrainingsPage = (req,res) => {
+    res.status(200).render('trainings',{
+        page_name: "trainings"
+    })
+}

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const slugify = require('slugify')
 
 const TrainingSchema = new Schema({
     title: {
@@ -20,6 +21,14 @@ const TrainingSchema = new Schema({
         unique: true
     }
 
+})
+
+TrainingSchema.pre('validate', function(next){
+    this.slug = slugify(this.title, {
+        lower: true,
+        strict: true
+    })
+    next()
 })
 
 const Training = mongoose.model('Training',TrainingSchema)

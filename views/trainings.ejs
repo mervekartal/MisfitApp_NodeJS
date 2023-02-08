@@ -1,0 +1,43 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_navigation') -%>
+      <div class="back_re">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="title">
+                   <h2>Trainings</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- trainers -->
+      <div  class="trainers">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <p>Lorem Ipsum available, but the majority have suffered </p>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+                <% for(let i = 0; i < trainings.length; i++ ) { %>
+               <div class="col-md-4">
+                  <div id="trai" class="trainer_box">
+                     <div class="trainer_img">
+                        <figure><img src="images/tra.jpg" alt="#"/></figure>
+                     </div>
+                     <div class="trainer">
+                        <h3><%= trainings[i].title %></h3>
+                        <p><%= trainings[i].description.substring(0,15) %> ...</p>
+                     </div>
+                  </div>
+               </div>
+               <% } %>
+            </div>
+         </div>
+      </div>
+      <!-- end trainers -->
+      <!--  footer -->
+<%- include('partials/_footer') -%>
