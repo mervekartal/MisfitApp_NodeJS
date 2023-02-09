@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const ejs = require('ejs')
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 const pageController = require('./controllers/pageController')
 const trainingController = require('./controllers/trainingController')
@@ -29,6 +30,9 @@ app.set("view engine","ejs")
 app.use(express.static('public'))
 app.use(express.json()) 
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method',{
+    methods: ['POST','GET'],
+}))
 
 
 
@@ -52,7 +56,8 @@ app.get('/login', pageController.getLoginPage) //login
 app.post('/trainings', trainingController.createTraining) //add training - post operation
 app.get('/trainings', trainingController.getAllTrainings) //all trainings
 app.get('/trainings/:slug', trainingController.getTraining) //training's single page
-
+app.put('/trainings/:slug', trainingController.updateTraining) //edit training
+app.delete('/trainings/:slug', trainingController.deleteTraining) //delete training
 
 
 const port = 3000

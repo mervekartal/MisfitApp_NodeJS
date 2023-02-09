@@ -58,3 +58,35 @@ exports.getTraining = async (req, res) => {
        })
    }
  }
+
+ exports.deleteTraining = async (req,res) => {
+    try{
+        const training = await Training.findOneAndRemove({slug: req.params.slug})
+        // req.flash("success",`${training.title} has been deleted successfully`) //flash message for delete portfolio
+        res.status(200).redirect('/trainings')
+    }catch(err){
+         res.status(400).json({
+         status: 'fail',
+         err
+        })
+    }
+}
+
+exports.updateTraining = async (req,res) => {
+
+    try{
+        const training = await Training.findOne({slug: req.params.slug})
+        training.title = req.body.title
+        training.description = req.body.description
+        
+        training.save()
+
+        res.status(200).redirect(`/trainings/${req.params.slug}`)
+
+    }catch(err){
+         res.status(400).json({
+         status: 'fail',
+         err
+        })
+    }
+}
