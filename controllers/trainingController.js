@@ -18,7 +18,7 @@ exports.createTraining = async (req,res) => {
 exports.getAllTrainings = async (req,res) => {
     try{
     const trainings = await Training.find({}).sort('-createdAt')
-        res.status(200).render('portfolios', {
+        res.status(200).render('trainings', {
             trainings,
             page_name: "trainings"
         })
