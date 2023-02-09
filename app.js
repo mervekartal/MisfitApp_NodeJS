@@ -47,10 +47,14 @@ app.get('/contact', pageController.getContactPage) //contact
 app.get('/gallery', pageController.getGalleryPage) //gallery
 app.get('/register', pageController.getRegisterPage) //register
 app.get('/login', pageController.getLoginPage) //login
-// app.get('/trainings', pageController.getTrainingsPage) //login
+// app.get('/trainings', pageController.getTrainingsPage) //all trainings
 
 app.post('/trainings', trainingController.createTraining) //add training - post operation
 app.get('/trainings', trainingController.getAllTrainings) //all trainings
+app.get('/trainings/:slug', trainingController.getTraining) //training's single page
+
+
+
 const port = 3000
 app.listen(port, () => {
     console.log(`App started on port ${port}`)
