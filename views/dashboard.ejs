@@ -1,34 +1,36 @@
 <%- include('partials/_header') -%>
 <%- include('partials/_navigation') -%>
-<% if(user) { %>
       <div class="back_re">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
                   <div class="title">
-                   <h2>Trainings</h2>
+                   <h2>Your Dashboard</h2>
                   </div>
                </div>
             </div>
          </div>
       </div>
-      <!-- trainings -->
+      <!-- trainers -->
       <div  class="trainers">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <p>Hey <%= user.name %>, let's start! </p><br>
-                     <% if(user.role === 'trainer' || user.role === 'admin') { %>
-                     <button class="btn btn-md btn-primary text-white" data-toggle="modal" data-target="#addTraining"><i class="fa fa-plus"></i><span>Add New Training</span></button>
-                     <% } %>
+                    <% if(user.role === 'trainer' || user.role === 'admin') { %> 
+                     <p>Hello <%= user.name %>, you can see the trainings you've created here </p><br>
+                    <% } %>
+                    <% if(user.role === 'member') { %> 
+                     <p>Hello <%= user.name %>, you can see the courses you have enrolled for here! </p><br>
+                    <% } %>
                   </div>
                </div>
             </div>
             <div class="row">
                 <% for(let i = 0; i < trainings.length; i++ ) { %>
+                  <% if(user && !(user.trainings.includes(trainings[i]._id)) && user.role != 'member') { %>
                <div class="col-md-4">
-                  <a href="trainings/<%= trainings[i].slug %>">
+                  <a href="/trainings/<%= trainings[i].slug %>">
                   <div id="trai" class="trainer_box">
                      <div class="trainer_img">
                         <figure><img src="/images/tra.jpg" alt="#"/></figure>
@@ -40,6 +42,7 @@
                   </div>
                   </a>
                </div>
+               <% } %>
                <% } %>
             </div>
 
@@ -60,11 +63,6 @@
                                        <div class="form-group mb-2">
                                           <div class="col-sm-12">
                                              <input type="text" name="title" class="form-control" placeholder="Training Title">
-                                          </div>
-                                       </div>
-                                       <div class="form-group mb-2">
-                                          <div class="col-sm-12">
-                                             <input type="hidden" name="role" class="form-control"  value="<%= user.role %>">
                                           </div>
                                        </div>
                                        <div class="form-group mb-2">
@@ -98,6 +96,4 @@
       </div>
       <!-- end trainers -->
       <!--  footer -->
-       
-<% } %>
 <%- include('partials/_footer') -%>

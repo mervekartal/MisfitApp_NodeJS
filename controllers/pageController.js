@@ -10,21 +10,9 @@ exports.getAboutPage = (req,res) => {
     })
 }
 
-exports.getTrainerPage = (req,res) => {
-    res.status(200).render('trainer',{
-        page_name: "trainer"
-    })
-}
-
 exports.getContactPage = (req,res) => {
     res.status(200).render('contact',{
         page_name: "contact"
-    })
-}
-
-exports.getGalleryPage = (req,res) => {
-    res.status(200).render('gallery',{
-        page_name: "gallery"
     })
 }
 
@@ -34,20 +22,14 @@ exports.getLoginPage = (req,res) => {
     })
 }
 
-exports.getRegisterPage = (req,res) => {
-    res.status(200).render('register',{
-        page_name: "register"
-    })
-}
-
 exports.getLogoutPage = (req,res) => {
     res.status(200).render('logout',{
         page_name: "logout"
     })
 }
 
-exports.getTrainingsPage = (req,res) => {
-    res.status(200).render('trainings',{
-        page_name: "trainings"
+exports.getRegisterPage = (req,res) => {
+    res.status(200).render('register',{
+        page_name: "register"
     })
 }

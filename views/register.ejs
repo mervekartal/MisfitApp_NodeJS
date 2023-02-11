@@ -1,0 +1,64 @@
+<%- include('partials/_header') -%>
+<%- include('partials/_navigation') -%>
+
+<!-- end header inner -->
+      <!-- end header -->
+      <div class="back_re">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="title">
+                     <h2>Register</h2>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--  contact -->
+      <div id="contact" class="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-12 offset-1 text-center">
+                  <form id="request" class="main_form" method="POST" action="users/signup">
+                     <div class="row">
+                        <div class="col-md-9">
+                            <% if(flashMessages){  %>
+                                <% if(flashMessages.success) { %>
+                                    <div class="alert alert-success">
+                                        <%= flashMessages.success %>
+                                    </div>
+                                <% } else if(flashMessages.error){ %>
+                                    <div class="alert alert-danger">
+                                        <%= flashMessages.error %>
+                                    </div>
+                                <% } %>
+                            <% } %>
+
+                        </div>
+
+                        <div class="col-md-9">
+                           <input class="contactus" placeholder="Your Name" type="text" name="name"> 
+                        </div>
+                        <div class="col-md-9">
+                            <select class="contactus" name="role" class="form-control" placeholder="Choose Role">
+                                <option>member</option>
+                                 <option>trainer</option>
+                            </select>
+                        </div>
+                        <div class="col-md-9">
+                           <input class="contactus" placeholder="Email" type="email" name="email"> 
+                        </div>
+                        <div class="col-md-9">
+                           <input class="contactus" placeholder="Password" type="password" name="password"> 
+                        </div>
+                        <div class="col-md-12">
+                           <button class="send_btn" type="submit">Register</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end contact -->
+<%- include('partials/_footer') -%>

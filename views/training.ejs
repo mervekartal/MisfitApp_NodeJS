@@ -19,14 +19,20 @@
                   <div class="titlepage">
                      <h3><b> <%= training.title %> </b></h3>
                      <p> <%= training.description %> </p>
+                     <% if(user.role === 'trainer' || user.role === 'admin') { %> 
                      <a class="btn btn-warning btn-md mt-5" href="#" data-toggle="modal" data-target="#editTraining"><i class="fa fa-edit"></i>Edit</a>
-                     <a class="btn btn-danger btn-md mt-5" href="#" data-toggle="modal" data-target="#deleteTraining"><i class="fa fa-eraser"></i>Delete</a>        
-                  </div>
+                     <a class="btn btn-danger btn-md mt-5" href="#" data-toggle="modal" data-target="#deleteTraining"><i class="fa fa-eraser"></i>Delete</a> 
+                     <% } %>       
+                    </div>
                </div>
                <div class="col-md-7">
                   <div class="about_img">
                      <figure><img src="/images/about.jpg" alt="#"/></figure>
                   </div>
+                  <div>
+                    <h3 class="mt-2"><b>Author by: </b><%= training.user.name %></h3>
+                  </div>
+
                </div>
             <!-- Edit Modal Start -->
             <div class="modal fade" id="editTraining" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -70,7 +76,7 @@
                         <!-- Delete Modal Start-->
                         <div class="modal" id="deleteTraining" tabindex="-1" role="dialog">
                            <div class="modal-dialog" role="document">
-                           <form method="POST" action="/trainings/<%= training.slug %>?_method=DELETE" class="form-horizontal">
+                           <form method="POST" action="/users/trainings/<%= training.slug %>?_method=DELETE" class="form-horizontal">
            
                              <div class="modal-content">
                                <div class="modal-header">
@@ -83,7 +89,7 @@
                                  <p>Are you sure you want to delete <b><%= training.title %></b>?</p>
                                </div>
                                <div class="modal-footer">
-                                 <button type="submit" class="btn btn-danger btn-radius btn-brd grd1">Yes, I'm</button>
+                                 <button type="submit" class="btn btn-danger btn-radius btn-brd grd1">Yes, sure</button>
                                  <button type="button" class="btn btn-secondary btn-radius btn-brd grd1" data-dismiss="modal" aria-label="Close">Cancel</button>
                                </div>
                              </div>

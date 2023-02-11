@@ -24,8 +24,13 @@ const UserSchema = new Schema({
     role: {
         type: String,
         enum: ["trainer", "member", "admin"],
-        default: "member"
+        default: "trainer"
     },
+    trainings: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Training'
+
+    }]
 
 })
 

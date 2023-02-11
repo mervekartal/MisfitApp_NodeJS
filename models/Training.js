@@ -19,8 +19,11 @@ const TrainingSchema = new Schema({
     slug: {
         type: String,
         unique: true
+    },
+    user: { //oluşturan 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
-
 })
 
 TrainingSchema.pre('validate', function(next){
