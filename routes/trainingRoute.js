@@ -10,5 +10,6 @@ router.route('/:slug').get(trainingController.getTraining) //antrenmana ait prof
 router.route('/:slug').delete(trainingController.deleteTraining) //antrenman silme
 router.route('/:slug').put(trainingController.updateTraining) //antrenmanı güncelleme
 router.route('/enroll').post(trainingController.enrollTraining) //antrenmana kaydolma
+router.route('/release').post(trainingController.releaseTraining) //antrenmandan kaydı geri çekme
 
 module.exports = router

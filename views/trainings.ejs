@@ -34,6 +34,9 @@
                         <figure><img src="/images/tra.jpg" alt="#"/></figure>
                      </div>
                      <div class="trainer">
+                        <% if(user.role === 'member' && user.trainings.includes(trainings[i]._id)) { %>
+                           <span class="pull-left text-success" tabindex="0" data-toggle="tooltip" data-placement="top" title="Enrolled!"><i class="fa fa-check-circle-o fa-2x"></i></span>
+                        <% } %>
                         <h3><%= trainings[i].title %></h3>
                         <p><%= trainings[i].description.substring(0,15) %> ...</p>
                      </div>

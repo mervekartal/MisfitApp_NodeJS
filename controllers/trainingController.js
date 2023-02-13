@@ -120,3 +120,18 @@ exports.enrollTraining = async (req,res) => {
         })
     }
 }
+
+exports.releaseTraining = async (req,res) => {
+
+    try{
+    const user = await User.findById(req.session.userID)
+    await user.trainings.pop({_id: req.body.training_id}) //formdan gelen antrenman id'sine sahip antrenmanı, kullanıcıdan sil
+    await user.save()
+        res.status(200).redirect('/users/dashboard')
+    }catch(err){
+         res.status(400).json({
+         status: 'fail',
+         err
+        })
+    }
+}

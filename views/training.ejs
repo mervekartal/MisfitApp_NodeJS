@@ -29,7 +29,14 @@
                         <input type="hidden" name="training_id" value="<%= training._id %>">
                         <button class="btn btn-success btn-md mt-5 text-white"><i class="fa fa-check-circle-o"></i>Enroll</button>    
                         <% } %>
+                      </form> 
+                      <form method="POST" action="/trainings/release">
+                        <% if((user.trainings.includes(training._id))) { %>
+                          <input type="hidden" name="training_id" value="<%= training._id %>">
+                          <button class="btn btn-warning btn-md mt-5 text-white"><i class="fa fa-sign-out"></i>Release</button>    
+                        <% } %>
                       </form>  
+ 
                     </div>
                     <% } %> 
 
