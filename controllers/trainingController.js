@@ -105,3 +105,18 @@ exports.updateTraining = async (req,res) => {
         })
     }
 }
+
+exports.enrollTraining = async (req,res) => {
+
+    try{
+    const user = await User.findById(req.session.userID)
+    await user.trainings.push({_id: req.body.training_id}) //formdan gelen antrenman id'sine sahip antrenmanı, kullanıcıya ekle
+    await user.save()
+        res.status(200).redirect('/users/dashboard')
+    }catch(err){
+         res.status(400).json({
+         status: 'fail',
+         err
+        })
+    }
+}

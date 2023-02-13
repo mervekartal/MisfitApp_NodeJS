@@ -44,6 +44,25 @@
                </div>
                <% } %>
                <% } %>
+
+               <% if(user.role == 'member') { %>
+                  <% for(let i = 0; i < user.trainings.length; i++ ) { %>
+               <div class="col-md-4">
+                  <a href="/trainings/<%= user.trainings[i].slug %>">
+                  <div id="trai" class="trainer_box">
+                     <div class="trainer_img">
+                        <figure><img src="/images/tra.jpg" alt="#"/></figure>
+                     </div>
+                     <div class="trainer">
+                        <h3><%= user.trainings[i].title %></h3>
+                        <p><%= user.trainings[i].description.substring(0,15) %> ...</p>
+                     </div>
+                  </div>
+                  </a>
+               </div>
+               <% } %>
+               <% } %>
+
             </div>
 
             <!-- Add Modal Start -->

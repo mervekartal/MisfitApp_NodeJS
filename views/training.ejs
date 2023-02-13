@@ -22,7 +22,17 @@
                      <% if(user.role === 'trainer' || user.role === 'admin') { %> 
                      <a class="btn btn-warning btn-md mt-5" href="#" data-toggle="modal" data-target="#editTraining"><i class="fa fa-edit"></i>Edit</a>
                      <a class="btn btn-danger btn-md mt-5" href="#" data-toggle="modal" data-target="#deleteTraining"><i class="fa fa-eraser"></i>Delete</a> 
-                     <% } %>       
+                     <% }else { %> 
+                    <div>
+                      <form method="POST" action="/trainings/enroll">
+                        <% if(!(user.trainings.includes(training._id))) { %>
+                        <input type="hidden" name="training_id" value="<%= training._id %>">
+                        <button class="btn btn-success btn-md mt-5 text-white"><i class="fa fa-check-circle-o"></i>Enroll</button>    
+                        <% } %>
+                      </form>  
+                    </div>
+                    <% } %> 
+
                     </div>
                </div>
                <div class="col-md-7">
