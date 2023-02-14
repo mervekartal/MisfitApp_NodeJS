@@ -25,7 +25,7 @@
                      <% }else { %> 
                     <div>
                       <form method="POST" action="/trainings/enroll">
-                        <% if(!(user.trainings.includes(training._id))) { %>
+                        <% if(!(user.trainings.includes(training._id)) && user.role === 'member') { %>
                         <input type="hidden" name="training_id" value="<%= training._id %>">
                         <button class="btn btn-success btn-md mt-5 text-white"><i class="fa fa-check-circle-o"></i>Enroll</button>    
                         <% } %>

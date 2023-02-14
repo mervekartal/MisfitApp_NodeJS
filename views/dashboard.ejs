@@ -11,14 +11,16 @@
             </div>
          </div>
       </div>
-      <!-- trainers -->
-      <div  class="trainers">
+      <div class="trainers">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                    <% if(user.role === 'trainer' || user.role === 'admin') { %> 
-                     <p>Hello <%= user.name %>, you can see the trainings you've created here </p><br>
+                    <% if(user.role === 'trainer') { %> 
+                     <p>Hello <%= user.name %>, you can see the trainings you've created here! </p><br>
+                    <% } %>
+                    <% if(user.role === 'admin') { %> 
+                     <p>Hello <%= user.name %>, you can see the all users. </p><br>
                     <% } %>
                     <% if(user.role === 'member') { %> 
                      <p>Hello <%= user.name %>, you can see the trainings you have enrolled for here! </p><br>
@@ -65,8 +67,41 @@
 
             </div>
          
+            <% if(user.role == 'admin'){ %>
 
+               <table class="table table-dark">
+                  <thead>
+                  <th scope="row" colspan="5" class="text-center">USERS</th>
+                    <tr>
+                      <th scope="col">#ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Role</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <% for(let i = 0; i < users.length; i++) { %>
+                    <tr>
+                      <th scope="row"><%= users[i]._id %></th>
+                      <td><%= users[i].name %></td>
+                      <td><%= users[i].email %></td>
+                      <td><%= users[i].role %></td>
+                      <td>
+                      <% if(users[i].role != 'admin') { %>
+                      <button class="btn btn-danger">Delete</button>
+                      <% } %>
+                     </td>
+                    </tr>
+                  <% } %>
+                  </tbody>
+                </table>
+            
+            <% } %>
+      
+         
          </div>
+
       </div>
       <!-- end trainers -->
       <!--  footer -->

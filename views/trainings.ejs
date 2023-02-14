@@ -22,6 +22,18 @@
                      <% if(user.role === 'trainer' || user.role === 'admin') { %>
                      <button class="btn btn-md btn-primary text-white" data-toggle="modal" data-target="#addTraining"><i class="fa fa-plus"></i><span>Add New Training</span></button>
                      <% } %>
+                     <% if(flashMessages){  %>
+                        <% if(flashMessages.success) { %>
+                           <div class="alert alert-success">
+                              <%= flashMessages.success %>
+                           </div>
+                        <% } else if(flashMessages.error){ %>
+                           <div class="danger danger-success">
+                              <%= flashMessages.error %>
+                           </div>
+                        <% } %>
+                     <% } %>
+      
                   </div>
                </div>
             </div>
