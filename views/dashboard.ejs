@@ -89,41 +89,16 @@
                       <td><%= users[i].role %></td>
                       <td class="text-center">
                       <% if(users[i].role != 'admin') { %>
-                      <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUser"><i class="fa fa-trash"></i></a>
+                      <a class="btn btn-danger btn-sm" href="/users/<%= users[i]._id %>?_method=DELETE" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></a>
+
                       <% } %>
+
                      </td>
                     </tr>
-                                    <!-- Delete Modal Start-->
-                <div class="modal" id="deleteUser" tabindex="-1" role="dialog">
-                  <div class="modal-dialog" role="document">
-                  <form method="POST" action="/users/<%=users[i]._id %>?_method=DELETE" class="form-horizontal">
-  
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title"><b>Delete User</b></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                           <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <p>Are you sure you want to delete <b><%= users[i].name %></b>?</p>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger btn-radius btn-brd grd1">Yes, sure</button>
-                        <button type="button" class="btn btn-secondary btn-radius btn-brd grd1" data-dismiss="modal" aria-label="Close">Cancel</button>
-                      </div>
-                    </div>
-  
-                  </form>
-                  </div>
-</div>
-<!-- Delete Modal End-->
-
                   <% } %>
                   </tbody>
                 </table>
-                
-               
+                 
             <% } %>
       
          

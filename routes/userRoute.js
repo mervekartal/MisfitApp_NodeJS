@@ -22,6 +22,7 @@ router.route('/signup').post([
 router.route('/login').post(authController.loginUser) 
 router.route('/logout').get(authController.logoutUser) 
 router.route('/dashboard').get(authMiddleware, authController.getDashboardPage) //url üzerinden dashboard sayfasına gitmek isteyen kullanıcılar, giriş yapmadıysa login sayfasına yönlendirilir. 
+router.route('/:id').delete(authController.deleteUser) 
 
 
 module.exports = router

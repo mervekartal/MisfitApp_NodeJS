@@ -77,7 +77,7 @@ exports.getTraining = async (req, res) => {
  exports.deleteTraining = async (req,res) => {
     try{
         const training = await Training.findOneAndRemove({slug: req.params.slug})
-        // req.flash("success",`${training.title} has been deleted successfully`) //flash message for delete portfolio
+        // req.flash("success",`${training.title} has been deleted successfully`) //flash message for delete training
         res.status(200).redirect('/users/dashboard')
     }catch(err){
          res.status(400).json({
