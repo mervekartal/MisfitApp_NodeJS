@@ -27,7 +27,7 @@ exports.createTraining = async (req,res) => {
         req.flash("success",`${training.title} has been created successfully`) //flash message for create training
         res.status(201).redirect('/trainings')
     }catch(err){
-        req.flash("success","Something happened!") 
+        req.flash("fail","Something happened!") 
         res.status(400).redirect('/trainings')
         // res.status(400).json({
         //     status: 'fail',
