@@ -10,6 +10,7 @@ const flash = require('connect-flash')
 const pageRoute = require('./routes/pageRoute')
 const trainingRoute = require('./routes/trainingRoute')
 const userRoute = require('./routes/userRoute')
+const categoryRoute = require('./routes/categoryRoute')
 
 const app = express()
 
@@ -73,6 +74,7 @@ app.use('*',(req, res, next) => {
 app.use('/', pageRoute) //aynı kullanım -> app.get('/', pageRoute) 
 app.use('/trainings', trainingRoute)
 app.use('/users', userRoute)
+app.use('/categories', categoryRoute)
 
 const port = 3000
 app.listen(port, () => {
