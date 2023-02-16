@@ -16,8 +16,11 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <p>Hello, you can see all the training categories! </p><br>
-                     <button class="btn btn-sm btn-primary text-white" href="#" data-toggle="modal" data-target="#addCategory"><span>Add New Category</span></button>                  </div>
+                     <p>Hello <%= user.name %>, you can see all the training categories! </p><br>
+                     <% if(user.role != 'member') { %> 
+                     <button class="btn btn-sm btn-primary text-white" href="#" data-toggle="modal" data-target="#addCategory"><span>Add New Category</span></button>                  
+                    <% } %>
+                    </div>
                </div>
             </div>
          
@@ -29,7 +32,9 @@
                         <tr>
                         <th scope="col">#ID</th>
                         <th scope="col">Category Name</th>
-                        <th scope="col" colspan="2">Actions</th>
+                        <% if(user.role != 'member') { %> 
+                        <th class="text-center" scope="col" colspan="2">Actions</th>
+                        <% } %> 
                       </tr>
                     </thead>
                     <tbody>
@@ -37,7 +42,9 @@
                             <tr>
                               <th><%= categories[i]._id %></th>
                               <td><%= categories[i].name %></td>
-                              <td><a href="/categories/<%= categories[i]._id %>?_method=DELETE" onclick="return confirm('Are you sure?')" class="btn btn-danger text white"><span>Delete</span></a></td>
+                              <% if(user.role != 'member') { %> 
+                              <td class="text-center"><a class="btn btn-danger btn-sm" href="/categories/<%= categories[i]._id %>?_method=DELETE" onclick="return confirm('Are you sure?')" class="btn btn-danger text white"><i class="fa fa-trash"></i></a></td>
+                              <% } %>
                             </tr>
                         <% } %> 
                     </tbody>
