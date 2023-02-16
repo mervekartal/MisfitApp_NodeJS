@@ -23,6 +23,10 @@ const TrainingSchema = new Schema({
     user: { //oluşturan 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    },
+    category: { //ait olduğu kategori 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category'
     }
 })
 
