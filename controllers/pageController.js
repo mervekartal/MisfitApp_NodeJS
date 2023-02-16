@@ -33,3 +33,9 @@ exports.getRegisterPage = (req,res) => {
         page_name: "register"
     })
 }
+
+exports.getCategoriesPage = (req,res) => {
+    res.status(200).render('categories',{
+        page_name: "categories"
+    })
+}
