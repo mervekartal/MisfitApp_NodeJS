@@ -19,22 +19,22 @@
          <div class="container">
             <div class="row">
                <div class="col-md-6">
-                  <form id="request" class="main_form">
+                  <form id="contactform" class="main_form" method="POST" action="/contact" name="contactform">
                      <div class="row">
                         <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Your Name" type="type" name="Your Name"> 
+                           <input class="contactus" placeholder="Your Name" type="type" name="name"> 
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                           <input class="contactus" placeholder="Email" type="type" name="mail"> 
                         </div>
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                            <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
+                        </div> -->
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Subject" type="type" name="subject">                          
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Subject" type="type" name="Subject">                          
-                        </div>
-                        <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
+                           <textarea class="textarea" placeholder="Message" type="type" name="message"></textarea>
                         </div>
                         <div class="col-md-12">
                            <button class="send_btn">Send</button>
