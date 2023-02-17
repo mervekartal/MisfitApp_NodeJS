@@ -33,3 +33,16 @@ exports.getAllCategories = async (req,res) => {
         })
     }
 }
+
+exports.deleteCategory = async (req,res) => {
+    try{
+        const category = await Category.findOneAndRemove({slug: req.params.slug})
+        req.flash("success",`${category.name} has been deleted successfully`) //flash message for delete training category
+        res.status(200).redirect('/categories')
+    }catch(err){
+         res.status(400).json({
+         status: 'fail',
+         err
+        })
+    }
+}

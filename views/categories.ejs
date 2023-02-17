@@ -18,7 +18,7 @@
                   <div class="titlepage">
                      <p>Hello <%= user.name %>, you can see all the training categories! </p><br>
                      <% if(user.role != 'member') { %> 
-                     <button class="btn btn-sm btn-primary text-white" href="#" data-toggle="modal" data-target="#addCategory"><span>Add New Category</span></button>                  
+                     <button class="btn btn-md btn-primary text-white" href="#" data-toggle="modal" data-target="#addCategory"><span>Add New Category</span></button>                  
                     <% } %>
                     </div>
                </div>
@@ -28,7 +28,7 @@
                 <h3>Categories</h3>
                 <table class="table table-striped table-dark">
                     <thead>
-                    <th scope="row" colspan="3" class="text-center">CATEGORIES</th>
+                    <th scope="row" colspan="3" class="text-center">TRAINING CATEGORIES</th>
                         <tr>
                         <th scope="col">#ID</th>
                         <th scope="col">Category Name</th>
@@ -43,7 +43,7 @@
                               <th><%= categories[i]._id %></th>
                               <td><%= categories[i].name %></td>
                               <% if(user.role != 'member') { %> 
-                              <td class="text-center"><a class="btn btn-danger btn-sm" href="/categories/<%= categories[i]._id %>?_method=DELETE" onclick="return confirm('Are you sure?')" class="btn btn-danger text white"><i class="fa fa-trash"></i></a></td>
+                              <td class="text-center"><a class="btn btn-danger btn-sm" href="/categories/<%= categories[i].slug %>?_method=DELETE" onclick="return confirm('Are you sure?')" class="btn btn-danger text white"><i class="fa fa-trash"></i></a></td>
                               <% } %>
                             </tr>
                         <% } %> 
