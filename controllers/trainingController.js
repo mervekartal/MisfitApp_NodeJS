@@ -1,5 +1,6 @@
 const Training = require('../models/Training')
 const User = require('../models/User')
+const Category = require('../models/Category')
 
 // exports.createTraining = async (req,res) => {
 //     //template hazır olmadığı için json dosyası gönderildi.
@@ -22,7 +23,8 @@ exports.createTraining = async (req,res) => {
     const training = await Training.create({
         title: req.body.title,
         description: req.body.description,
-        user: req.session.userID
+        user: req.session.userID,
+        category: req.body.category
     })
         req.flash("success",`${training.title} has been created successfully`) //flash message for create training
         res.status(201).redirect('/trainings')
@@ -40,10 +42,12 @@ exports.createTraining = async (req,res) => {
 exports.getAllTrainings = async (req,res) => {
     try{
     const trainings = await Training.find({}).sort('-createdAt')
+    const categories = await Category.find()
     const user = await User.findById(req.session.userID)
         res.status(200).render('trainings', {
             trainings,
             user,
+            categories,
             page_name: "trainings"
         })
     }catch(error){

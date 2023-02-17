@@ -22,6 +22,7 @@
                      <% if(user.role === 'trainer' || user.role === 'admin') { %>
                      <button class="btn btn-md btn-primary text-white" data-toggle="modal" data-target="#addTraining"><i class="fa fa-plus"></i><span>Add New Training</span></button>
                      <% } %>
+                     <div class="col-md-12 mt-3">
                      <% if(flashMessages){  %>
                         <% if(flashMessages.success) { %>
                            <div class="alert alert-success">
@@ -33,7 +34,7 @@
                            </div>
                         <% } %>
                      <% } %>
-      
+                     </div>
                   </div>
                </div>
             </div>
@@ -81,6 +82,13 @@
                                           <div class="col-sm-12">
                                              <input type="hidden" name="role" class="form-control"  value="<%= user.role %>">
                                           </div>
+                                       </div>
+                                       <div class="form-group mb-2 col-sm-12">
+                                          <select class="form-control" name="category" placeholder="Choose Category">
+                                             <% for(let i=0; i < categories.length; i++) { %>
+                                                <option value="<%= categories[i]._id %>"><%= categories[i].name %></option>
+                                             <% } %>
+                                          </select>                                       
                                        </div>
                                        <div class="form-group mb-2">
                                           <div class="col-sm-12">
