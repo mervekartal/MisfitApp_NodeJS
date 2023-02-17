@@ -48,26 +48,6 @@
          </div>
       </section>
       <!-- end banner -->
-      <!-- about -->
-      <div class="about">
-         <div class="container">
-            <div class="row d_flex">
-               <div class="col-md-5">
-                  <div class="titlepage">
-                     <h2>About Fitness</h2>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using  </p>
-                     <a class="read_more" href="Javascript:void(0)">Raed More</a>
-                  </div>
-               </div>
-               <div class="col-md-7">
-                  <div class="about_img">
-                     <figure><img src="images/about.jpg" alt="#"/></figure>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end about -->
       <!-- services -->
       <div  class="services">
          <div class="container">
@@ -99,34 +79,13 @@
          </div>
       </div>
       <!-- end services -->
-      <!-- latest news -->
-      <div class="latest">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Latest News</h2>
-                     <p>The point of using Lorem Ipsum is that it has a more-or-less</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-sm-12">
-                  <div class="news_img">
-                     <figure><img src="images/nes.jpg" alt="#"/></figure>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end latest news -->
       <!-- trainers -->
       <div  class="trainers">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <h2>Our Trainers</h2>
+                     <h2>Who are we?</h2>
                      <p>Lorem Ipsum available, but the majority have suffered </p>
                   </div>
                </div>
@@ -138,8 +97,8 @@
                         <figure><img src="images/tra.jpg" alt="#"/></figure>
                      </div>
                      <div class="trainer">
-                        <h3>sandy Mark </h3>
-                        <p>architecture</p>
+                        <p class="stat_count"><%= totalMembers %></p>
+                        <h4 class="text-secondary">Members</h4>
                      </div>
                   </div>
                </div>
@@ -149,8 +108,8 @@
                         <figure><img src="images/tra0.jpg" alt="#"/></figure>
                      </div>
                      <div class="trainer">
-                        <h3>limijack </h3>
-                        <p>Maping</p>
+                        <p class="stat_count"><%= totalTrainers %></p>
+                        <h4 class="text-secondary">Trainers</h4>
                      </div>
                   </div>
                </div>
@@ -160,8 +119,8 @@
                         <figure><img src="images/tra1.jpg" alt="#"/></figure>
                      </div>
                      <div class="trainer">
-                        <h3>smith den </h3>
-                        <p>Metarial</p>
+                        <p class="stat_count"><%= totalTrainings %></p>
+                        <h4 class="text-secondary">Trainings</h4>
                      </div>
                   </div>
                </div>
@@ -221,50 +180,4 @@
          </div>
       </div>
       <!-- end gallery -->
-      <!--  contact -->
-      <div id="contact" class="contact">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Requst A call  for You</h2>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-6">
-                  <form id="request" class="main_form">
-                     <div class="row">
-                        <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Your Name" type="type" name="Your Name"> 
-                        </div>
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Email" type="type" name="Email"> 
-                        </div>
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
-                        </div>
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Subject" type="type" name="Subject">                          
-                        </div>
-                        <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
-                        </div>
-                        <div class="col-md-12">
-                           <button class="send_btn">Send</button>
-                        </div>
-                     </div>
-                  </form>
-               </div>
-               <div class="col-md-6">
-                  <div class="map_main">
-                     <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="600" height="425" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end contact -->
 <%- include('partials/_footer') -%>

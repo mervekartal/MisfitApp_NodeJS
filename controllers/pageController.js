@@ -1,8 +1,29 @@
-exports.getIndexPage = (req,res) => {
+const nodemailer = require('nodemailer')
+const Training = require('../models/Training')
+const User = require('../models/User')
+const Category = require('../models/Category')
+
+
+// exports.getIndexPage = (req,res) => {
+//     res.status(200).render('index',{
+//         page_name: "index"
+//     })
+// }
+
+exports.getIndexPage = async (req,res) => {
+    const trainings = await Training.find().sort('-createdAt')
+    const totalTrainings = await Training.find().countDocuments()
+    const totalTrainers = await User.countDocuments({role: 'trainer'})
+    const totalMembers = await User.countDocuments({role: 'member'})
     res.status(200).render('index',{
-        page_name: "index"
+        page_name: "index",
+        trainings,
+        totalTrainings,
+        totalTrainers,
+        totalMembers
     })
 }
+
 
 exports.getAboutPage = (req,res) => {
     res.status(200).render('about',{
@@ -39,3 +60,4 @@ exports.getCategoriesPage = (req,res) => {
         page_name: "categories"
     })
 }
+
